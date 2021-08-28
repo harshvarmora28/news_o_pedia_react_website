@@ -1,14 +1,16 @@
 import React from 'react'
 
+
 const NewsItem = (props) => {
+    
     return (
         <div>
-            <div class="card" style={{width: "18rem"}}>
-                <img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fcricket%2Fcricinfo%2F1219926_1296x729.jpg" class="card-img-top" alt="..."/>
-                <div class="card-body">
-                    <h5 class="card-title">{props.title}</h5>
-                    <p class="card-text">{props.description}</p>
-                    <a href="/" class="btn btn-primary">Go somewhere</a>
+            <div className="card" style={{width: "18rem"}}>
+                <img src={props.imageUrl} className="card-img-top" alt="..."/>
+                <div className="card-body">
+                    <h5 className="card-title">{props.title}...</h5>
+                    <p className="card-text">{props.description}...</p>
+                    <a href={props.newsUrl} target="_blank" className="btn btn-sm btn-primary">Read More</a>
                 </div>
                 </div>
         </div>
