@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import NewsItem from './NewsItem'
 import Spinner from './Spinner';
+import PropTypes from 'prop-types';
 
 const News = (props) => {
     let articles = []
@@ -9,9 +10,10 @@ const News = (props) => {
     const [totalResult, setTotalResult] = useState();
     const [loading, setLoading] = useState(false);
 
+
     useEffect(() => {
         async function fetchData() {
-            let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=589ccc3f4d9c4617be3bcedea98d1864&page=1&pageSize=${props.pageSize}`;
+            let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=589ccc3f4d9c4617be3bcedea98d1864&page=1&pageSize=${props.pageSize}`;
             setLoading(true);
             let data = await fetch(url);
             let parsedData = await data.json();
@@ -21,11 +23,11 @@ const News = (props) => {
             
         }
         fetchData();
-      }, [props.pageSize]); // Or [] if effect doesn't need props or state
+      }, [props.pageSize, props.country, props.category]); // Or [] if effect doesn't need props or state
     
     const handlePrevClick = () => {
         async function fetchData() {
-            let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=589ccc3f4d9c4617be3bcedea98d1864&page=${page - 1}&pageSize=${props.pageSize}`;
+            let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=589ccc3f4d9c4617be3bcedea98d1864&page=${page - 1}&pageSize=${props.pageSize}`;
             setLoading(true);
             let data = await fetch(url);
             let parsedData = await data.json();
@@ -43,7 +45,7 @@ const News = (props) => {
         }
         else{
             async function fetchData() {
-                let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=589ccc3f4d9c4617be3bcedea98d1864&page=${page + 1}&pageSize=${props.pageSize}`;
+                let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=589ccc3f4d9c4617be3bcedea98d1864&page=${page + 1}&pageSize=${props.pageSize}`;
                 setLoading(true);
                 let data = await fetch(url);
                 let parsedData = await data.json();
@@ -59,7 +61,7 @@ const News = (props) => {
 
     return (
         <div className="container my-3">
-            <h4>Top Headlines</h4>
+            <h2 className="text-center my-3">Top Headlines</h2>
             {loading && <Spinner/>}
             <div className="row">
                 {!loading && article.map((element) => {
@@ -74,6 +76,16 @@ const News = (props) => {
             </div>
         </div>
     )
+}
+
+News.propTypes = {
+    country: PropTypes.string.isRequired,
+    pageSize: PropTypes.number.isRequired
+}
+
+News.defaultProps = {
+    country: "in",
+    pageSize: 12
 }
 
 export default News
