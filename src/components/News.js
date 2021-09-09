@@ -3,6 +3,7 @@ import NewsItem from './NewsItem'
 import Spinner from './Spinner';
 import PropTypes from 'prop-types';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import SpinnerCentered from './SpinnerCentered';
 
 const News = (props) => {
     let articles = []
@@ -61,23 +62,26 @@ const News = (props) => {
 
     const fetchMoreData = async () => {
             setPage(page + 1);
-            let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=589ccc3f4d9c4617be3bcedea98d1864&page=1&pageSize=${props.pageSize}`;
+            let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=589ccc3f4d9c4617be3bcedea98d1864&page=${page + 1}&pageSize=${props.pageSize}`;
+            setLoading(true);
             let data = await fetch(url);
             let parsedData = await data.json();
             setArticle(article.concat(parsedData.articles));
             setTotalResult(parsedData.totalResults);
+            setLoading(false);
         };
         
     return (
-        <div className="container my-3">
+        <>
             <h2 className="text-center my-3">Top Headlines</h2>
-            {loading && <Spinner/>}
+            {loading && <SpinnerCentered/>}
             <InfiniteScroll
-            dataLength = {articles.length}
+            dataLength = {article.length}
             next = {fetchMoreData}
-            hasMore = {articles.length !== totalResult}
+            hasMore = {article.length !== totalResult}
             loader = {<Spinner/>}
-            >
+            >   
+            <div className="container">
                 <div className="row">
                     {article.map((element) => {
                         return <div className="col-md-4" key={element.url}>
@@ -85,8 +89,9 @@ const News = (props) => {
                         </div> 
                     })}
                 </div>
+                </div>
             </InfiniteScroll>
-        </div>
+        </>
     )
 }
 
