@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #301551;
+}
+#navbar{
+    background-color: #492b7c;
+    
+}
+.nav-link{
+    color: #f6d912;
+}
+.navbar-brand{
+    color: #f6d912;
+}
+#news-card{
+    background-color: #492b7c;
+    box-shadow: 3px 3px 26px #1e0b35;
+}
+#read-more-btn{
+    background-color: #ed8a0a;
+    box-shadow: 2px 3px 8px #301551;
+}
+.card-title{
+    color: #f6d912;
+}
+#main-headline{
+    color: #ffffff;
+}
+#muted-text{
+    color: #1e0b35;
+}
+#news-desc{
+    color: #ffffff;
+}
+#news-img{
+    box-shadow: 0px 10px 40px #301551;
+}
