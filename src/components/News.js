@@ -73,7 +73,7 @@ const News = (props) => {
         
     return (
         <>
-            <h2 className="text-center my-3" id="main-headline">Top Headlines</h2>
+            <h2 className="text-center my-3" id="main-headline">Today's Top-Headlines</h2>
             {loading && <SpinnerCentered/>}
             <InfiniteScroll
             dataLength = {article.length}

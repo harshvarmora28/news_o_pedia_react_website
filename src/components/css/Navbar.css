@@ -10,8 +10,20 @@ body{
 .nav-link{
     color: #f6d912;
 }
+.nav-link:hover{
+    color: #ed8a0a;
+}
+.nav-link:active{
+    color: #ed8a0a;
+}
 .navbar-brand{
     color: #f6d912;
+}
+.navbar-brand:hover{
+    color: #ed8a0a;
+}
+.navbar-brand:active{
+    color: #ed8a0a;
 }
 #news-card{
     background-color: #492b7c;
@@ -35,4 +47,27 @@ body{
 }
 #news-img{
     box-shadow: 0px 10px 40px #301551;
+}
+#news-bubble{
+    background-color: #ed8a0a;
+}
+.navbar-toggler-icon{
+    color: #f6d912;
+}
+.navbar-collapse{
+    color: #f6d912;
+}
+.navbar-toggler{
+    color: #f6d912;
+}
+
+::-webkit-scrollbar{
+    width: 6px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #ed8a0a;
+    border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background-color: #f6d912;
 }
