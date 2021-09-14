@@ -15,13 +15,17 @@ const News = (props) => {
 
     useEffect(() => {
         async function fetchData() {
+            props.changeProgress(20);
             let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=589ccc3f4d9c4617be3bcedea98d1864&page=1&pageSize=${props.pageSize}`;
             setLoading(true);
             let data = await fetch(url);
+            props.changeProgress(40);
             let parsedData = await data.json();
+            props.changeProgress(70);
             setArticle(parsedData.articles);
             setTotalResult(parsedData.totalResults);
             setLoading(false);
+            props.changeProgress(100);
         }
         fetchData();
       }, [props.pageSize, props.country, props.category]); // Or [] if effect doesn't need props or state
