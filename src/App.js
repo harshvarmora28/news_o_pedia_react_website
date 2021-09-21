@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Navbar from './components/Navbar'
 import News from './components/News'
+import About from './components/About';
 import {
   BrowserRouter as Router,
   Switch,
@@ -32,6 +33,7 @@ const App = () => {
         <Route exact path="/science"><News changeProgress = {changeProgress} key="science" pageSize={12} country="in" category="science" /></Route>
         <Route exact path="/sports"><News changeProgress = {changeProgress} key="sports" pageSize={12} country="in" category="sports" /></Route>
         <Route exact path="/technology"><News changeProgress = {changeProgress} key="technology" pageSize={12} country="in" category="technology" /></Route>
+        <Route exact path="/about"><About/></Route>
       </Switch>
       </Router>
     </div>

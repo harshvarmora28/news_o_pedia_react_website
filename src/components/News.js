@@ -28,6 +28,7 @@ const News = (props) => {
             props.changeProgress(100);
         }
         fetchData();
+        // eslint-disable-next-line
       }, [props.pageSize, props.country, props.category]); // Or [] if effect doesn't need props or state
 
     // const handlePrevClick = () => {

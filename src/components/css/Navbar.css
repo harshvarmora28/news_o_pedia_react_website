@@ -71,3 +71,8 @@ body{
 ::-webkit-scrollbar-thumb:hover{
     background-color: #f6d912;
 }
+#about-heading h2{
+    color: #f6d912;
+    font-size: 20px;
+    margin-top: 20px;
+}
