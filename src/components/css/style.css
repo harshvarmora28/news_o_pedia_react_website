@@ -76,3 +76,12 @@ body{
     font-size: 20px;
     margin-top: 20px;
 }
+#footer-text{
+    color: #ed8a0a;
+    text-decoration: none;
+}
+#footer footer{
+    background-color: #492b7c;
+    color: #f6d912;
+    margin-top: 20px;
+}

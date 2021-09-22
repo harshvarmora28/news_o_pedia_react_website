@@ -8,6 +8,7 @@ import {
   Route
 } from "react-router-dom";
 import LoadingBar from 'react-top-loading-bar'
+import Footer from './components/Footer';
 
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
         color='#ed8a0a'
         progress={progress}
       />
+      
       <Switch>
         <Route exact path="/"><News changeProgress = {changeProgress} key="general" pageSize={12} country="in" category="general" /></Route>
         <Route exact path="/business"><News changeProgress = {changeProgress} key="business" pageSize={12} country="in" category="business" /></Route>
@@ -36,6 +38,8 @@ const App = () => {
         <Route exact path="/about"><About/></Route>
       </Switch>
       </Router>
+      
+      <Footer/>
     </div>
   )
 }
