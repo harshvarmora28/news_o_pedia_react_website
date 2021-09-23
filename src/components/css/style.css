@@ -85,3 +85,7 @@ body{
     color: #f6d912;
     margin-top: 20px;
 }
+#back-to-top{
+    text-decoration: none;
+    color: #f6d912;
+}
